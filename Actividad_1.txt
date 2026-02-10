@@ -1,0 +1,17 @@
+Necesidades:
+1. No sé quién es el domiciliario más cercano al asignar los pedidos.
+  - Usuario: Domiciliario.
+  - Resuelve: El pedido sea recogido lo más rapido posible.
+  - Valor: Mejores tiempos de entrega de pedidos.
+2. Pedidos pequeños y rapidos de preparar se preparan o envian antes que pedidos con mayor antiguedad.
+  - Usuario: 
+3. 
+4. 
+5. 
+
+Problema:
+
+
+Funciones:
+1. Ubicación gps de cada domiciliario.
+2. Selección de prioridad bajo criterio de antiguedad y tiempo de preparación.
