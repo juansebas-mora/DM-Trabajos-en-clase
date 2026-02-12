@@ -1,17 +1,45 @@
-Necesidades:
-1. No sé quién es el domiciliario más cercano al asignar los pedidos.
-  - Usuario: Domiciliario.
-  - Resuelve: El pedido sea recogido lo más rapido posible.
-  - Valor: Mejores tiempos de entrega de pedidos.
-2. Pedidos pequeños y rapidos de preparar se preparan o envian antes que pedidos con mayor antiguedad.
-  - Usuario: 
-3. 
-4. 
-5. 
+NECESIDADES:
+1. Necesidad: Saber en tiempo real del estado del pedido.
+  - Usuario afectado: Cliente.
+  - Problema que resuelve: La incertidumbre y ansiedad de no saber si el pedido fue recibido, se está preparado o ya ha sido enviado.
+  - Valor para Greenbite: Reduce llamadas, mejora la experiencia y aumenta la confianza.
 
-Problema:
+2. Necesidad: Controlar la disponibilidad de productos en tiempo real.
+  - Usuario afectado: Cliente y administrador.
+  - Problema que resuelve: Pedidos de productos agotados que luego deben cancelarse.
+  - Valor para Greenbite: Evita frustración y malas reseñas, mejora la credibilidad del restaurante.
+
+3. Necesidad: Organizar pedidos por grado de prioridad.
+  - Usuario afectado: Personal de cocina.
+  - Problema que resuelve: Preparación demorada y olvido de pedidos de mayor antigúedad.
+  - Valor para Greenbite: Mayor productividad y optimización de tiempos.
+
+4. Necesidad: Asignar al domiciliario más cercano pedidos en cercanas entre sí.
+  - Usuario afectado: Administrador del restaurante.
+  - Problema que resuelve: Entregas tardías por mala coordinación o sobrecarga de repartidores.
+  - Valor para Greenbite: Optimiza tiempos de entrega y reduce costos.
+
+5. Necesidad: Sistema de calificaciones y retroalimentación post-entrega.
+  - Usuario afectado: Cliente y restaurante.
+  - Problema que resuelve: Falta de información sobre la calidad del servicio.
+  - Valor para Greenbite: Permite mejora continua y aumenta reputación digital.
 
 
-Funciones:
-1. Ubicación gps de cada domiciliario.
-2. Selección de prioridad bajo criterio de antiguedad y tiempo de preparación.
+PROBLEMA:
+Falta de coordinación y visibilidad en tiempo real entre clientes, cocina y domiciliarios, que genera incertidumbre, errores en pedidos, retrasos en entregas y pérdida de calidad en el servicio.
+
+
+FUNCIONES:
+1. Sistema de seguimiento en tiempo real del pedido: Permitir que el cliente vea el estado del pedido en etapas claras: recibido, en preparación, listo, en camino y entregado. Debe incluir notificaciones automáticas.
+
+2. Gestión dinámica de inventario: El administrador podrá actualizar disponibilidad de productos y el sistema bloqueará automáticamente los ítems agotados para evitar que se sigan vendiendo.
+
+3. Panel de cocina con priorización automática: Vista exclusiva para cocina donde los pedidos se ordenen por tiempo de llegada, urgencia o tiempo estimado de entrega.
+
+4. Asignación inteligente de domiciliarios: Algoritmo que asigne automáticamente el pedido al domiciliario más cercano disponible y que agrupe entregas en zonas próximas cuando sea posible.
+
+5. Sistema de calificaciones y retroalimentación: Después de la entrega, el cliente podrá calificar el servicio y dejar comentarios. El administrador tendrá acceso a reportes para analizar desempeño y detectar patrones de mejora.
+
+
+
+
