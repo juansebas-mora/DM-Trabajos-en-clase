@@ -1,48 +1,76 @@
-Situación/Necesidad: Necesito desarrollar una app que le permita a los estudiantes de Desarrollo Móvil de la Universidad del Rosario identificar las tareas asignadas y las fechas de entrega de las mismas.
+Situación/Necesidad: Desarrollar una aplicación móvil que permita a los estudiantes del curso de Desarrollo Móvil de la Universidad del Rosario identificar las tareas asignadas y sus fechas de entrega, y que además facilite al profesor la gestión y seguimiento de dichas tareas.
 
-Usuarios: IDENTIFICAR QUE TIPO DE PERSONAS QUE VAN A UTILIZAR LA APLICACIÓN (VISIÓN HUMANA)
-1. Profesor/a:
-  - Edad: Entre 30 y 50 años de edad.
-  - Características generales: Profesora encargada del curso y profesional con responsabilidades externas a la universidad.
-  - Motivación para usar la App: Va a poder 
-2. Estudiante:
-  - Edad: Entre 18 y 25 años de edad.
-  - Características principales: 
-  - Motivación para usar la App: 
+Usuarios:
+1. Profesor/a
+  - Edad: Entre 30 y 50 años.
+  - Características generales: Profesional con responsabilidades académicas y externas a la universidad. Maneja múltiples grupos y actividades simultáneamente, por lo que tiene tiempo limitado.
+  - Motivación para usar la App: Podrá gestionar y hacer seguimiento de las tareas asignadas a sus estudiantes sin depender de correos o plataformas externas. Le permite saber en tiempo real qué estudiantes han completado una actividad antes de iniciar la clase, ahorrando tiempo valioso.
+2. Estudiante
+  - Edad: Entre 18 y 25 años.
+  - Características principales: Estudiante universitario de pregrado. Cursa múltiples materias, lo que puede llevar a que olvide fechas de entrega.
+  - Motivación para usar la App: Tendrá visibilidad clara de todas las tareas que le han asignado, sus fechas límite y su estado, evitando impactos negativos en sus calificaciones por olvidos. Los recordatorios automáticos le ayudarán a organizarse mejor.
 
 Roles de los Usuarios:
-1. Administrador: 
-  - Problema basado en 
-2. Profesor/a:
-  - Posible problema que identificaría: No puede modificar la fecha límite de entrega de una tarea sin crear una nueva. Los estudiantos no hicieron la actividad, perdida de tiempo antes de iniciar la clase.
-3. Estudiante:
-  - Posible problema que identificaría: No recibe recordatorios sobre la fecha límite de entrega.
+1. Administrador
+  - Posible problema que identificaría: No puede restablecer la contraseña de un estudiante o profesor que ha perdido acceso a su cuenta, lo que bloquea al usuario afectado e impide su participación en el curso.
+2. Profesor/a
+  - Posible problema que identificaría: No puede modificar la fecha límite de entrega de una tarea sin crear una nueva. Los estudiantes no completaron la actividad, generando pérdida de tiempo al inicio de la clase.
+3. Estudiante
+  - Posible problema que identificaría: No recibe recordatorios sobre la fecha límite de entrega de una tarea, lo que resulta en entregas tardías o en no entregar nada.
 
-Necesidades de los Usuarios: PENSAR EN TODO
-1. Profesor/a:
+Necesidades de los Usuarios:
+1. Profesor/a
   - Consultar la lista de estudiantes del curso.
-  - Añadir una nueva tarea con atributos: Asunto, Fecha Límite, Estudiante.
-  - Modificar los atributos de una tarea.
-  - Consultar qué estudiantes han realizado la tarea.
-  - "Eliminar" una tarea ya completada.
-2. Estudiante:
-  - Consultar las tareas asignadas por el profesor y sus atributos.
-  - Recibir recordatorios sobre la fecha límite de entrega de una tarea.
+  - Añadir una nueva tarea con atributos: Asunto, Fecha Límite, Estudiante(s) asignado(s).
+  - Modificar los atributos de una tarea existente (asunto, fecha límite, asignación).
+  - Consultar qué estudiantes han realizado una tarea y cuáles no.
+  - "Eliminar" o archivar una tarea ya completada para mantener el espacio de trabajo limpio.
+  - Recibir un resumen del estado de entregas antes de iniciar la clase.
+
+2. Estudiante
+  - Consultar las tareas asignadas por el profesor con todos sus atributos (asunto, descripción, fecha límite, estado).
+  - Recibir recordatorios automáticos sobre la proximidad de la fecha límite de entrega.
+  - Marcar una tarea como completada para notificar al profesor.
+  - Visualizar el historial de tareas entregadas y pendientes.
+
+3. Administrador
+  - Registrar y gestionar usuarios (profesores y estudiantes).
+  - Crear y configurar cursos, asignando el profesor correspondiente.
+  - Gestionar la vinculación de estudiantes a un curso.
+  - Supervisar el correcto funcionamiento general de la plataforma.
 
 Requisitos funcionales:
 1. Creación de tareas: 
   - Usuario: Profesor/a
-  - Descripción: El Profesor/a crea una tarea con un asunto, fecha límite, y asignada a cierto estudiante.
-  - Entrada: Asunto de la tarea, Fecha Límite de la tarea -> Salida: Tarea creada exitosamente visible para Profesor/a y estudiantes.
-  - Código: 001
+  - Descripción: El profesor crea una tarea con un asunto, descripción, fecha límite y la asigna a uno o varios estudiantes del curso.
+  - Entrada: Asunto, descripción, fecha límite, estudiante(s) destinatario(s).
+  - Salida: Tarea creada exitosamente, visible para el profesor y para los estudiantes asignados.
+  - Código: 002
+
 2. Recordatorio de cierre de tarea:
   - Usuario: Estudiante
-  - Descripción: El estudiante recibe una notificación a modo de recordatorio sobre la fecha límite de las tareas que se le han asignado.
-  - Entrada: Tarea y estudiante al que se le asigno la tarea -> Salida: Notificación a modo de recordatorio para el estudiante.
-  - Prioridad: 
-3. Entrada:  -> Salida: x
-  - Prioridad: 
-4. Entrada: x -> Salida: x
-  - Prioridad: 
-5. Entrada: x -> Salida: x
-  - Prioridad: 
+  - Descripción: El estudiante recibe una notificación push a modo de recordatorio sobre la fecha límite de las tareas asignadas. Se envían recordatorios con 48 horas y 24 horas de anticipación, y uno final el mismo día del cierre.
+  - Entrada: Tarea asignada al estudiante y su fecha límite.
+  - Salida: Notificación push con el asunto de la tarea y el tiempo restante para la entrega.
+  - Código: 001
+
+3. Modificar atributos de una tarea
+  - Usuario: Profesor/a
+  - Descripción: El profesor puede editar cualquier atributo de una tarea ya creada (asunto, descripción, fecha límite, estudiante asignado) sin necesidad de eliminarla y crearla de nuevo. Al modificar, los estudiantes asignados reciben una notificación de actualización.
+  - Entrada: Tarea existente + nuevos valores de los atributos a modificar.
+  - Salida: Tarea actualizada y notificación enviada a los estudiantes afectados.
+  - Código: 003
+
+4. Consultar miembros del curso
+  - Usuario: Profesor/a y Administrador
+  - Descripción: El profesor puede visualizar la lista completa de estudiantes inscritos en su curso, junto con su información básica (nombre, correo institucional) y un indicador de su estado general de entregas.
+  - Entrada: Solicitud de visualización del listado del curso.
+  - Salida: Lista de estudiantes con nombre, correo y porcentaje de tareas completadas.
+  - Código: 005
+
+5. Consultar todas las tareas asignadas
+  - Usuario: Profesor/a y Estudiante
+  - Descripción: Tanto el profesor como el estudiante pueden consultar el listado completo de tareas. El profesor ve todas las tareas del curso con el estado de cada estudiante. El estudiante solo ve las tareas que le han sido asignadas, con su estado (pendiente, entregada, vencida).
+  - Entrada: Solicitud de visualización del listado de tareas.
+  - Salida: Lista de tareas con atributos (asunto, fecha límite, estado, estudiante(s) asignado(s)).
+  - Código: 004
