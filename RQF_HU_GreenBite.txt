@@ -1,0 +1,150 @@
+REQUERIMIENTOS FUNCIONALES - HISTORIAS DE USUARIO
+
+1. Gestión del Menú
+
+  Nombre: Gestión del Menú
+  Usuario: Administrador
+  Código: 002
+  
+  Historia de usuario:
+  Yo como Administrador quiero crear, editar y desactivar productos del menú para mantener la oferta del restaurante actualizada y disponible para los clientes.
+  
+  Escenarios:
+  1. Crear producto exitosamente: El admin completa todos los campos obligatorios (nombre, descripción, precio, categoría, imagen) y el producto queda visible en el menú.
+  2. Editar producto: El admin modifica el precio de un producto existente y los cambios se reflejan inmediatamente.
+  3. Desactivar producto: El admin desactiva un producto por falta de stock; el producto deja de aparecer para el cliente pero conserva su historial.
+  4. Validación de campos vacíos: El admin intenta guardar sin precio; el sistema muestra un mensaje de error indicando el campo requerido.
+  5. Subida de imagen fallida: La imagen supera el tamaño permitido; el sistema notifica el límite máximo.
+  
+  Criterios de aceptación:
+  - El admin puede crear, editar y desactivar productos desde el panel.
+  - Los campos nombre, precio y categoría son obligatorios.
+  - Los cambios de precio se reflejan en menos de 2 segundos.
+  - Los productos desactivados no aparecen en el catálogo del cliente.
+  - Se permiten imágenes en formato JPG/PNG con un máximo de 2 MB.
+  
+  Estimación: 8 puntos
+  Fecha inicio: 24/02/2026
+  Fecha final: 06/03/2026
+  Responsable: Backend + Frontend
+
+
+
+2. Realización y Seguimiento de Pedidos
+
+  Nombre: Realización y Seguimiento de Pedidos
+  Usuario: Cliente
+  Código: 003
+  
+  Historia de usuario:
+  Yo como Cliente quiero seleccionar productos del menú, realizar un pedido y hacer seguimiento en tiempo real para saber el estado de mi entrega en todo momento.
+  
+  Escenarios:
+  1. Pedido exitoso: El cliente agrega productos al carrito, selecciona dirección, método de pago y confirma; el sistema genera un número de pedido.
+  2. Producto agotado en carrito: El cliente intenta confirmar un pedido con un producto desactivado; el sistema lo notifica y solicita eliminarlo.
+  3. Seguimiento en tiempo real: El pedido cambia de estado (Recibido, En preparación, En camino, Entregado) y el cliente ve cada actualización.
+  4. Pedido cancelado por el admin: El sistema notifica al cliente con el motivo de la cancelación.
+  5. Sin cobertura de domicilio: El cliente ingresa una dirección fuera del área de cobertura; el sistema le informa y no le permite continuar.
+  
+  Criterios de aceptación:
+  - El cliente puede agregar, quitar y modificar cantidades en el carrito antes de confirmar.
+  - El pedido registra fecha, hora, productos, cantidades y total.
+  - El cliente recibe notificaciones push o en pantalla en cada cambio de estado.
+  - El tiempo máximo de carga del estado del pedido es de 3 segundos.
+  - El historial de pedidos muestra los últimos 30 pedidos.
+  
+  Estimación: 13 puntos
+  Fecha inicio: 09/03/2026
+  Fecha final: 20/03/2026
+  Responsable: Backend + Frontend
+
+
+3. Asignación y Gestión de Domicilios
+
+  Nombre: Asignación y Gestión de Domicilios
+  Usuario: Administrador / Domiciliario
+  Código: 004
+  
+  Historia de usuario:
+  Yo como Administrador quiero asignar pedidos confirmados a un domiciliario disponible para garantizar entregas rápidas y organizadas.
+  
+  Escenarios:
+  
+  1. Asignación manual exitosa: El admin selecciona un pedido listo y lo asigna a un domiciliario disponible; el domiciliario recibe una notificación.
+  2. Sin domiciliarios disponibles: Todos los domiciliarios están ocupados; el sistema alerta al admin y el pedido queda en cola.
+  3. Domiciliario acepta pedido: El domiciliario confirma la asignación y el estado del pedido cambia a "En camino".
+  4. Domiciliario rechaza pedido: El domiciliario rechaza con motivo; el pedido vuelve al pool de asignación para ser reasignado.
+  5. Pedido entregado: El domiciliario marca el pedido como entregado; el sistema registra hora de entrega y cierra el ciclo.
+  
+  Criterios de aceptación:
+  - El admin ve en tiempo real el estado y disponibilidad de cada domiciliario.
+  - Un pedido solo puede asignarse a un domiciliario a la vez.
+  - El domiciliario recibe la notificación en menos de 5 segundos tras la asignación.
+  - El sistema registra el tiempo total de entrega (desde asignación hasta entrega).
+  - El admin puede reasignar un pedido en cualquier momento antes de marcarlo como entregado.
+  
+  Estimación: 13 puntos
+  Fecha inicio: 23/03/2026
+  Fecha final: 03/04/2026
+  Responsable: Backend + Frontend
+
+
+
+4. Autenticación y Gestión de Usuarios
+
+  Nombre: Autenticación y Gestión de Usuarios
+  Usuario: Administrador / Cliente / Domiciliario
+  Código: 001
+  
+  Historia de usuario:
+  Yo como Administrador quiero gestionar los usuarios de la plataforma (clientes y domiciliarios) para controlar el acceso, roles y datos de cada uno.
+  
+  Escenarios:
+  1. Registro de cliente exitoso: El cliente se registra con correo y contraseña; el sistema valida el correo mediante un enlace de verificación.
+  2. Inicio de sesión exitoso: El usuario ingresa credenciales válidas y accede a su panel según su rol.
+  3. Credenciales incorrectas: El sistema bloquea el acceso tras 5 intentos fallidos y notifica al usuario.
+  4. Creación de domiciliario por admin: El admin crea la cuenta de un domiciliario con nombre, teléfono y vehículo.
+  5. Eliminación de cuenta: El admin desactiva una cuenta; el usuario pierde acceso pero sus datos históricos se conservan.
+  
+  Criterios de aceptación:
+  - Cada rol (Admin, Domiciliario, Cliente) tiene acceso únicamente a las funcionalidades de su perfil.
+  - Las contraseñas se almacenan cifradas (bcrypt o equivalente).
+  - El token de sesión expira a las 24 horas de inactividad.
+  - El admin puede ver, editar y desactivar cualquier cuenta.
+  - El sistema envía correo de bienvenida y verificación al registrar un nuevo cliente.
+  
+  Estimación: 8 puntos
+  Fecha inicio: 17/02/2026
+  Fecha final: 23/02/2026
+  Responsable: Backend
+
+
+
+5. Reportes y Dashboard de Operaciones
+
+  Nombre: Reportes y Dashboard de Operaciones
+  Usuario: Administrador
+  Código: 005
+  
+  Historia de usuario:
+  Yo como Administrador quiero visualizar reportes de ventas, pedidos y desempeño de domiciliarios para tomar decisiones informadas que mejoren la operación del restaurante.
+  
+  Escenarios:
+  1. Dashboard con datos del día: El admin accede y ve el total de pedidos, ingresos y domiciliarios activos del día en curso.
+  2. Reporte por rango de fechas: El admin filtra por semana o mes y obtiene un resumen de ventas y pedidos.
+  3. Producto más vendido: El sistema muestra un ranking de productos por unidades vendidas en el periodo seleccionado.
+  4. Desempeño de domiciliarios: El admin consulta el número de entregas y tiempo promedio por domiciliario.
+  5. Exportación de reporte: El admin exporta el reporte filtrado en formato PDF o Excel.
+  
+  Criterios de aceptación:
+  - El dashboard carga en menos de 4 segundos con datos actualizados.
+  - Los reportes pueden filtrarse por día, semana y mes.
+  - Los gráficos muestran al menos: ventas por día, top 5 productos y pedidos por estado.
+  - La exportación genera el archivo en menos de 10 segundos.
+  - Los datos del dashboard se sincronizan automáticamente cada 60 segundos.
+  
+  Estimación: 8 puntos
+  Fecha inicio: 07/04/2026
+  Fecha final: 14/04/2026
+  Responsable: Backend + Frontend
+
